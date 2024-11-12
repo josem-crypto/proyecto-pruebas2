@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Verificación de CAPTCHA</title>
+    <link rel="stylesheet" href="style.css"> <!-- Si tienes un archivo CSS -->
+</head>
+<body>
+    <h2>Formulario Prellenado con CAPTCHA</h2>
+
+    <!-- Formulario prellenado -->
+    <label>Nombre:</label>
+    <input type="text" value="Juan" readonly><br>
+    <label>Apellido:</label>
+    <input type="text" value="Pérez" readonly><br>
+    <label>Segundo Apellido:</label>
+    <input type="text" value="García" readonly><br>
+
+    <!-- Imagen con CAPTCHA -->
+    <img src="captcha_image.png" alt="CAPTCHA" id="captcha-image"><br>
+
+    <!-- Campo para ingresar los dígitos del CAPTCHA -->
+    <label>Proporcione los dígitos de la imagen:</label>
+    <input type="text" id="captcha-input" placeholder="Ingresa el código aquí" required>
+
+    <!-- Botón para verificar el CAPTCHA -->
+    <button onclick="verificarCaptcha()">Enviar</button>
+
+    <script>
+        function verificarCaptcha() {
+            const captchaIngresado = document.getElementById('captcha-input').value.trim();
+            const captchaCorrecto = "1234"; // Cambia esto según los números que se muestran en tu imagen
+
+            if (captchaIngresado === captchaCorrecto) {
+                // Redirige a la segunda imagen si el CAPTCHA es correcto
+                window.location.href = 'pagina2.html';
+            } else {
+                alert('CAPTCHA incorrecto. Inténtalo nuevamente.');
+            }
+        }
+    </script>
+</body>
+</html>
